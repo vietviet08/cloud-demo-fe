@@ -22,12 +22,12 @@ pipeline {
                             git checkout master && \\
                             git pull origin master && \\
                             echo "Building and starting Frontend container..." && \\
-                            docker-compose -f ${env.COMPOSE_FILE} stop vuejs-app || true && \\
-                            docker-compose -f ${env.COMPOSE_FILE} rm -f vuejs-app || true && \\
-                            docker-compose -f ${env.COMPOSE_FILE} build vuejs-app && \\
-                            docker-compose -f ${env.COMPOSE_FILE} up -d vuejs-app && \\
+                            docker compose -f ${env.COMPOSE_FILE} stop vuejs-app || true && \\
+                            docker compose -f ${env.COMPOSE_FILE} rm -f vuejs-app || true && \\
+                            docker compose -f ${env.COMPOSE_FILE} build vuejs-app && \\
+                            docker compose -f ${env.COMPOSE_FILE} up -d vuejs-app && \\
                             echo "Frontend container started successfully" && \\
-                            docker-compose -f ${env.COMPOSE_FILE} ps vuejs-app
+                            docker compose -f ${env.COMPOSE_FILE} ps vuejs-app
                         '
                     """
                 }
