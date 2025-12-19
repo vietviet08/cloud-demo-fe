@@ -5,8 +5,8 @@ pipeline {
         EC2_HOST = 'ec2-18-141-170-131.ap-southeast-1.compute.amazonaws.com'
         EC2_USER = 'ubuntu'
         PEM_FILE = '/var/lib/jenkins/jobs/FE/builds/sing.pem'
-        PROJECT_DIR = '/home/employee/fe'
-        COMPOSE_FILE = '/home/employee/docker-compose.yml'
+        PROJECT_DIR = '/home/ubuntu/employee/fe'
+        COMPOSE_FILE = '/home/ubuntu/employee/docker-compose.yml'
     }
     
     stages {
