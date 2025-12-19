@@ -4,8 +4,8 @@ pipeline {
     environment {
         EC2_HOST = 'ec2-18-141-170-131.ap-southeast-1.compute.amazonaws.com'
         EC2_USER = 'ubuntu'
-        PEM_FILE = 'sing.pem'  // File PEM phải được upload vào Jenkins server hoặc workspace
-        PROJECT_DIR = '/home/employee'
+        PEM_FILE = 'sing.pem'
+        PROJECT_DIR = '/home/employee/fe'
         COMPOSE_FILE = '/home/employee/docker-compose.yml'
     }
     
