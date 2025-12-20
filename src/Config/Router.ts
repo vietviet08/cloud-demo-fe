@@ -12,6 +12,11 @@ const routes = [
     name: 'Add Employee',
     component: AddEmp,
   },
+  {
+    path: '/edit/:employeeId',
+    name: 'Edit Employee',
+    component: AddEmp,
+  },
 ];
 
 const router = createRouter({
