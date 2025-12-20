@@ -7,6 +7,9 @@ pipeline {
         PEM_FILE = '/var/lib/jenkins/jobs/FE/builds/sing.pem'
         PROJECT_DIR = '/home/ubuntu/employee/fe'
         COMPOSE_FILE = '/home/ubuntu/employee/docker-compose.yml'
+
+        S3_BUCKET = 'cloud-exam-vku'
+        S3_DIST_PATH = 'fe/dist'
     }
     
     stages {
@@ -21,6 +24,15 @@ pipeline {
                             git fetch origin && \\
                             git checkout master && \\
                             git pull origin master && \\
+                            echo "Building frontend application..." && \\
+                            cd vue-js-keycloak && \\
+                            npm install && \\
+                            npm run build && \\
+                            echo "Upload dist folder to S3..." && \\
+                            aws s3 sync ./dist s3://${env.S3_BUCKET}/${env.S3_DIST_PATH} --delete && \\
+                            echo "Upload to S3 completed." && \\
+                            echo "Frontend build completed successfully" && \\
+                            cd .. && \\
                             echo "Building and starting Frontend container..." && \\
                             docker compose -f ${env.COMPOSE_FILE} stop vuejs-app || true && \\
                             docker compose -f ${env.COMPOSE_FILE} rm -f vuejs-app || true && \\

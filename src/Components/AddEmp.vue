@@ -49,7 +49,7 @@ export default defineComponent({
   created() {
     this.initializeForm();
   },
-  beforeRouteUpdate(to, from, next) {
+  beforeRouteUpdate(to, _from, next) {
     this.employeeId = to.params.employeeId;
     this.mode = this.employeeId ? "Edit" : "Add";
     this.initializeForm();
@@ -90,7 +90,7 @@ export default defineComponent({
       };
       if (this.mode === 'Add'){
         try {
-        const response = await axios.post(`${this.base_url}/employees/create`, employeeData);
+        await axios.post(`${this.base_url}/employees/create`, employeeData);
         this.name = '';
         this.salary = 0;
         window.location.href = '/';
