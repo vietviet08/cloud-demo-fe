@@ -105,7 +105,7 @@ export default defineComponent({
             error: '',
             mode: 'Add',
             employeeId: null as any,
-            base_url: "http://18.141.170.131:8080",
+            base_url: "https://18.141.170.131:8080",
             loading: false,
         };
     },
