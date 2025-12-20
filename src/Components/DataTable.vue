@@ -34,7 +34,7 @@ export default defineComponent({
   data() {
     return {
       emps: [] as any,
-      base_url: "http://localhost:8080",
+      base_url: "http://18.141.170.131:8080",
     };
   },
   mounted() {
