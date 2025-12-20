@@ -25,7 +25,6 @@ pipeline {
                             git checkout master && \\
                             git pull origin master && \\
                             echo "Building frontend application..." && \\
-                            cd vue-js-keycloak && \\
                             npm install && \\
                             npm run build && \\
                             echo "Upload dist folder to S3..." && \\
